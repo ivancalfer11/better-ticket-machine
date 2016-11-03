@@ -18,15 +18,21 @@ public class TicketMachine
     // The total amount of money collected by this machine.
     private int total;
     private int prize;
+    private int maxbilletes;
+    private int contador;
+
 
     /**
      * Create a machine that issues tickets of the given price.
      */
-    public TicketMachine(int cost, int prem)
+    public TicketMachine(int cost, int prem, int numtickets)
     {
         price = cost;
-        balance = 0;total = 0;
-        prem= prize;
+        balance = 0;
+        total = 0;
+        prize = prem;
+        maxbilletes= numtickets;
+        contador =0;
     }
 
     /**
@@ -66,47 +72,42 @@ public class TicketMachine
      * reduce the current balance by the ticket price. Print
      * an error message if more money is required.
      */
-    public void printTicket(){    
-       if (prize == 1){
-          System.out.println("##################");
-            System.out.println("# The BlueJ Line");
-            System.out.println("# Ticket");
-            System.out.println("# " + price + " cents.");
-            System.out.println("##################");
-            System.out.println();
-
+     public void printTicket(){
+         if (contador > maxbilletes){
+                  System.out.println("Actually, there aren´t tickets in this machine");  
+                }
+         
+          else if(prize == 1){
             System.out.println("##################");
             System.out.println("# The BlueJ Line");
             System.out.println("# Ticket");
             System.out.println("# " + price + " cents.");
             System.out.println("##################");
             System.out.println();
-
-            // Update the total collected with the price.
-            total = total + price;
-            // Reduce the balance by the prince.
-            balance = balance - price;
-
-            // Update the total collected with the price.
-            total = total + price;
-            // Reduce the balance by the prince.
-            balance = balance - price;
+            System.out.println("##################");
+            System.out.println("# The BlueJ Line");
+            System.out.println("# Ticket");
+            System.out.println("# " + price + " cents.");
+            System.out.println("##################");
+            System.out.println(); 
             
-        }
-        else  {
+           total = total + price;
+           balance = balance -price;
+            
+           }
+         else if (prize == 0){
             System.out.println("##################");
             System.out.println("# The BlueJ Line");
             System.out.println("# Ticket");
             System.out.println("# " + price + " cents.");
             System.out.println("##################");
             System.out.println();
-                    
-        }
-      
-      
-    }
-
-    
+            }
+         else {
+             System.out.println("Error");
+            }
+          contador = contador +1; 
+       }
     } 
 
 
