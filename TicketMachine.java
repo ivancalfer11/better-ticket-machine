@@ -73,11 +73,7 @@ public class TicketMachine
      * an error message if more money is required.
      */
      public void printTicket(){
-         if (contador > maxbilletes){
-                  System.out.println("Actually, there aren´t tickets in this machine");  
-                }
-         
-          else if(prize == 1){
+          if(prize == 1){
             System.out.println("##################");
             System.out.println("# The BlueJ Line");
             System.out.println("# Ticket");
@@ -106,7 +102,6 @@ public class TicketMachine
          else {
              System.out.println("Error");
             }
-          contador = contador +1; 
        }
     } 
 
